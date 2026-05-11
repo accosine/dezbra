@@ -1,0 +1,44 @@
+{
+  "name": "phaser-vite-ts-boilerplate",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@11.0.8",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "format": "prettier --write .",
+    "lint": "eslint",
+    "ok": "pnpm run format && pnpm run lint && pnpm run test && pnpm run typecheck && pnpm run build",
+    "preview": "vite preview",
+    "test": "pnpm run test:unit:chromium && pnpm run test:unit:firefox && pnpm run test:unit:webkit && pnpm run test:e2e",
+    "test:e2e": "playwright test",
+    "test:unit:chromium": "vitest run --browser=chromium --coverage ",
+    "test:unit:firefox": "vitest run --browser=firefox",
+    "test:unit:webkit": "vitest run --browser=webkit",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.3",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.59.1",
+    "@vitest/browser": "4.1.5",
+    "@vitest/browser-playwright": "4.1.5",
+    "@vitest/coverage-v8": "4.1.5",
+    "eslint": "10.3.0",
+    "eslint-plugin-playwright": "2.10.2",
+    "eslint-plugin-tsdoc": "0.5.2",
+    "eslint-plugin-unicorn": "64.0.0",
+    "globals": "17.6.0",
+    "phaser": "4.0.0",
+    "playwright": "1.59.1",
+    "prettier": "3.8.3",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.59.2",
+    "vite": "8.0.11",
+    "vitest": "4.1.5"
+  }
+}

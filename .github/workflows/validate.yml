@@ -1,0 +1,201 @@
+on:
+  workflow_call:
+
+env:
+  NODE_VERSION: "24"
+
+jobs:
+  format:
+    name: 📏 Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.13.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v6
+
+      - name: 📦 Enable pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          cache: true
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: 📥 Download deps
+        run: pnpm ci
+
+      - name: 📏 Format Utils
+        run: |
+          pnpm run format
+          git diff --exit-code
+
+  typecheck:
+    name: ʦ TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.13.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v6
+
+      - name: 📦 Enable pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          cache: true
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: 📥 Download deps
+        run: pnpm ci
+
+      - run: pnpm run typecheck
+
+  lint:
+    name: ⬣ ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.13.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v6
+
+      - name: 📦 Enable pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          cache: true
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: 📥 Download deps
+        run: pnpm ci
+
+      - run: pnpm run lint
+
+  build:
+    name: 🏗 Build Game
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.13.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v6
+
+      - name: 📦 Enable pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          cache: true
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: 📥 Download deps
+        run: pnpm ci
+
+      - run: pnpm run build
+
+      - if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-game
+          path: ./packages/game/dist
+
+  unit_test:
+    name: 🎭 Unit Test
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v${{ vars.PLAYWRIGHT_VERSION }}
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, firefox, webkit]
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.13.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v6
+
+      - name: 📦 Enable pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          cache: true
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: 📥 Download deps
+        run: pnpm ci
+
+      - run: HOME=/root pnpm run test:unit:${{ matrix.project }}
+
+      - if: ${{ matrix.project == 'chromium' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: unit-test-utils-coverage-${{ matrix.project }}
+          path: ./packages/utils/coverage
+          retention-days: 30
+
+  e2e_test:
+    name: 🎭 E2E Test
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v${{ vars.PLAYWRIGHT_VERSION }}
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, firefox, webkit, "Mobile Chrome", "Mobile Safari"]
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.13.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v6
+
+      - name: 📦 Enable pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          cache: true
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 📥 Download deps
+        run: pnpm ci
+
+      - name: 👩‍🔬 Test with Playwright 🎭
+        run: HOME=/root pnpm run test:e2e --project="${{ matrix.project }}"
+
+      - name: ‍🔬 Create Coverage
+        run: pnpm run --filter @bruff/arcade coverage:e2e:report
+
+      - name: 🆙 Upload e2e test coverage
+        if: ${{ matrix.project == 'chromium' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: e2e-test-arcade-coverage-${{ matrix.project }}
+          path: ./packages/arcade/coverage
+          retention-days: 30

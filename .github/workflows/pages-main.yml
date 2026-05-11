@@ -1,0 +1,53 @@
+name: Deploy Main to GitHub Pages
+
+on:
+  workflow_run:
+    branches:
+      - main
+    types:
+      - completed
+    workflows:
+      - "🚀 CI/CD"
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-main:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Install
+        run: pnpm ci
+
+      - name: Set main path
+        run: |
+          echo "BASE_PATH=/${{ github.event.repository.name }}/" >> $GITHUB_ENV
+
+      - name: Build
+        run: pnpm run build
+
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
+      - name: Deploy main
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
+          keep_files: true
