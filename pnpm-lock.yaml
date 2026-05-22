@@ -30,8 +30,8 @@ importers:
         specifier: 10.3.0
         version: 10.3.0
       eslint-plugin-playwright:
-        specifier: 2.10.2
-        version: 2.10.2(eslint@10.3.0)
+        specifier: 2.10.3
+        version: 2.10.3(eslint@10.3.0)
       eslint-plugin-tsdoc:
         specifier: 0.5.2
         version: 0.5.2(eslint@10.3.0)(typescript@6.0.3)
@@ -574,8 +574,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-plugin-playwright@2.10.2:
-    resolution: {integrity: sha512-0N+2OWc3NZbOZ0gK8mp2TK6Qu3UWcJTQ9rqU0UM2yRJXgT758pvpY0lsOLIySfbyFrLqn3TcXjixbmcK90VnuQ==}
+  eslint-plugin-playwright@2.10.3:
+    resolution: {integrity: sha512-68WQsrFlE3NRu0KcM/J1GaiejxGVprU0EU2Er8arMALZcTZnsLub9/LsOT0XO7IDfk8iT5lgz6anIQVpfTHz2A==}
     engines: {node: '>=16.9.0'}
     peerDependencies:
       eslint: '>=8.40.0'
@@ -1720,7 +1720,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-plugin-playwright@2.10.2(eslint@10.3.0):
+  eslint-plugin-playwright@2.10.3(eslint@10.3.0):
     dependencies:
       eslint: 10.3.0
       globals: 17.6.0
