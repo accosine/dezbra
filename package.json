@@ -25,9 +25,9 @@
     "@axe-core/playwright": "4.12.1",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.61.1",
-    "@vitest/browser": "4.1.9",
-    "@vitest/browser-playwright": "4.1.9",
-    "@vitest/coverage-v8": "4.1.9",
+    "@vitest/browser": "4.1.10",
+    "@vitest/browser-playwright": "4.1.10",
+    "@vitest/coverage-v8": "4.1.10",
     "eslint": "10.6.0",
     "eslint-plugin-playwright": "2.10.5",
     "eslint-plugin-tsdoc": "0.5.2",
@@ -39,6 +39,6 @@
     "typescript": "6.0.3",
     "typescript-eslint": "8.62.1",
     "vite": "8.1.4",
-    "vitest": "4.1.9"
+    "vitest": "4.1.10"
   }
 }
