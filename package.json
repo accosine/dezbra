@@ -31,7 +31,7 @@
     "eslint": "10.6.0",
     "eslint-plugin-playwright": "2.10.5",
     "eslint-plugin-tsdoc": "0.5.2",
-    "eslint-plugin-unicorn": "65.0.1",
+    "eslint-plugin-unicorn": "66.0.0",
     "globals": "17.7.0",
     "phaser": "4.2.1",
     "playwright": "1.61.1",
