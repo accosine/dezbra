@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: 📦 Enable pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.0.9
         with:
           cache: true
 
@@ -45,7 +45,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: 📦 Enable pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.0.9
         with:
           cache: true
 
@@ -71,7 +71,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: 📦 Enable pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.0.9
         with:
           cache: true
 
@@ -97,7 +97,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: 📦 Enable pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.0.9
         with:
           cache: true
 
@@ -135,7 +135,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: 📦 Enable pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.0.9
         with:
           cache: true
 
@@ -174,7 +174,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: 📦 Enable pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.0.9
         with:
           cache: true
 
