@@ -1,4 +1,5 @@
 import {
+  createTestBoss,
   createTestEnemy,
   createTestState,
   fixedRandom,
@@ -40,6 +41,12 @@ describe("test fixtures", (): void => {
     expect(requireEnemy(state, enemy.id)).toBe(enemy);
     expect(() => requireEnemy(state, toEnemyId(MISSING_ENEMY_ID))).toThrow(
       Error,
+    );
+  });
+
+  it("creates bosses from the catalog", (): void => {
+    expect(createTestBoss("fleshMountain").boss?.definition.name).toBe(
+      "FLEISCHBERG",
     );
   });
 

@@ -1,5 +1,11 @@
+import { BOSS_CATALOG, type BossId } from "../data/bosses";
+import {
+  type BossState,
+  type Enemy,
+  type EnemyId,
+  toEnemyId,
+} from "./entities";
 import { type CharacterId, CHARACTERS } from "../data/characters";
-import { type Enemy, type EnemyId, toEnemyId } from "./entities";
 import { type MapId, MAPS } from "../data/maps";
 import { createRun } from "./create-run";
 import type { GameState } from "./game-state";
@@ -83,6 +89,33 @@ export const createTestEnemy = (overrides: Partial<Enemy> = {}): Enemy => ({
   y: 0,
   ...overrides,
 });
+
+/** Creates a boss from the catalog next to the given position. */
+export const createTestBoss = (
+  bossId: BossId,
+  overrides: Partial<Enemy> = {},
+  timers: Partial<Omit<BossState, "definition">> = {},
+): Enemy => {
+  const definition = BOSS_CATALOG[bossId];
+
+  return createTestEnemy({
+    boss: {
+      chargeTicks: 0,
+      definition,
+      gunTicks: 0,
+      poisonTicks: 0,
+      summonTicks: 0,
+      ...timers,
+    },
+    contactDamage: definition.contactDamage,
+    health: definition.health,
+    isBig: true,
+    maxHealth: definition.health,
+    radius: definition.size,
+    speed: definition.speed,
+    ...overrides,
+  });
+};
 
 /** Returns the enemy with the given id or throws. */
 export const requireEnemy = (state: GameState, enemyId: EnemyId): Enemy => {

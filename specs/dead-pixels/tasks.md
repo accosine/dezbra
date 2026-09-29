@@ -38,9 +38,9 @@
 - [x] T25 — Implementiere Partikel und schwebende Texte in `src/sim/particles.ts`
 - [x] T26 — Implementiere Waffenmuster in `src/sim/weapon-patterns.ts`
 - [x] T27 — Implementiere Feuer-Timer in `src/sim/weapons.ts`
-- [ ] T28 — Implementiere Gegner-Spawn und -Bewegung in `src/sim/enemies.ts`
-- [ ] T29 — Implementiere Bossverhalten und Boss-Spawn in `src/sim/boss.ts`
-- [ ] T30 — Implementiere Kills, Combo und Punkte in `src/sim/kills.ts`
+- [x] T28 — Implementiere Gegner-Spawn und -Bewegung in `src/sim/enemies.ts`
+- [x] T29 — Implementiere Bossverhalten und Boss-Spawn in `src/sim/boss.ts`
+- [x] T30 — Implementiere Kills, Combo und Punkte in `src/sim/kills.ts`
 - [ ] T31 — Implementiere Kugelbewegung, Treffer und Explosionen in `src/sim/bullets.ts` und `src/sim/combat.ts`
 - [ ] T32 — Implementiere XP-Kristalle und Level-Ups in `src/sim/experience.ts`
 - [ ] T33 — Implementiere Wellen und Truhen in `src/sim/waves.ts` und `src/sim/chests.ts`

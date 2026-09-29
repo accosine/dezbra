@@ -74,6 +74,7 @@ export const ENEMY_TUNING = deepFreeze({
   staggerOnHit: 10,
   variants: 3,
   walkFrameTicks: 12,
+  walkTicksJitter: 20,
   worldMargin: 22,
 });
 
@@ -125,8 +126,10 @@ export const KILL_TUNING = deepFreeze({
   bossBloodBursts: 4,
   bossBloodCount: 20,
   bossBloodSpread: 36,
+  bossCoinDivisor: 5,
   bossFloatLife: 85,
   bossFloatRise: 34,
+  bossRewardPerWave: 120,
   coinDivisor: 10,
   floatLife: 55,
   floatRise: 20,
