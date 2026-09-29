@@ -57,6 +57,8 @@ export const overrideRulesUnicorn = {
  */
 export const overrideRulesEslint = {
   "func-names": ["error", "always", { generators: "never" }],
+  // Coordinates are the core vocabulary of a 2D game
+  "id-length": ["error", { exceptions: ["x", "y"], min: 2 }],
   "no-console": ["error", { allow: ["info", "warn", "error"] }],
   "no-inline-comments": "off",
   "no-ternary": "off",
