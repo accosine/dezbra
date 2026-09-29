@@ -1,6 +1,7 @@
 import { BOSS_CATALOG, type BossId } from "../data/bosses";
 import {
   type BossState,
+  type Bullet,
   type Enemy,
   type EnemyId,
   toEnemyId,
@@ -85,6 +86,29 @@ export const createTestEnemy = (overrides: Partial<Enemy> = {}): Enemy => ({
   variant: 0,
   walkFrame: 0,
   walkTicks: 0,
+  x: 0,
+  y: 0,
+  ...overrides,
+});
+
+/** Creates a non-piercing player bullet at the given position. */
+export const createTestBullet = (overrides: Partial<Bullet> = {}): Bullet => ({
+  area: 1,
+  color: "#85c1e9",
+  damage: 5,
+  explosionRadius: null,
+  hasReturned: false,
+  hitEnemies: [],
+  isBlackHole: false,
+  isBoomerang: false,
+  isLaser: false,
+  life: 10,
+  maxLife: 10,
+  orbit: null,
+  owner: "player",
+  pierces: false,
+  size: 4,
+  velocity: { x: 0, y: 0 },
   x: 0,
   y: 0,
   ...overrides,
