@@ -1,4 +1,4 @@
-import { type CharacterId, CHARACTERS } from "../data/characters";
+import { CHARACTER_LIST, type CharacterId } from "../data/characters";
 import {
   isRequirementMet,
   type UnlockRequirement,
@@ -48,7 +48,11 @@ export const isMapUnlocked = (save: SaveData, mapId: MapId): boolean =>
 
 /** Unlocks every character and map whose requirement is met. */
 export const applyUnlocks = (save: SaveData): UnlockResult => {
-  const characters = findNewUnlocks(CHARACTERS, save.unlockedCharacters, save);
+  const characters = findNewUnlocks(
+    CHARACTER_LIST,
+    save.unlockedCharacters,
+    save,
+  );
   const maps = findNewUnlocks(MAP_LIST, save.unlockedMaps, save);
 
   return {
@@ -72,7 +76,7 @@ export const applyUnlocks = (save: SaveData): UnlockResult => {
 
 /** Returns the hint of the first locked character or map, if any. */
 export const findNextUnlockHint = (save: SaveData): string | undefined => {
-  const lockedCharacter = CHARACTERS.find(
+  const lockedCharacter = CHARACTER_LIST.find(
     (character) => !isCharacterUnlocked(save, character.id),
   );
   const lockedMap = MAP_LIST.find((map) => !isMapUnlocked(save, map.id));

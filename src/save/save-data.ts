@@ -1,4 +1,4 @@
-import { type CharacterId, CHARACTERS } from "../data/characters";
+import { CHARACTER_IDS, type CharacterId } from "../data/characters";
 import { MAP_IDS, type MapId } from "../data/maps";
 import { SHOP_ITEMS, type ShopItemId } from "../data/shop-items";
 import { deepFreeze } from "../utils/deep-freeze";
@@ -36,9 +36,6 @@ export const DEFAULT_SAVE_DATA: SaveData = deepFreeze({
   unlockedMaps: ["city"],
 });
 
-const CHARACTER_IDS: ReadonlyArray<CharacterId> = CHARACTERS.map(
-  (character) => character.id,
-);
 const SHOP_ITEM_IDS: ReadonlyArray<ShopItemId> = SHOP_ITEMS.map(
   (item) => item.id,
 );
