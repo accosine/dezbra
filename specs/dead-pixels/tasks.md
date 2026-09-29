@@ -3,13 +3,13 @@
 ## Fundament
 
 - [x] T1 — Füge die `id-length`-Ausnahme für `x`/`y` in `eslint-config/rules.js` hinzu
-- [ ] T2 — Implementiere `Brand`, `Vector` und `deepFreeze` in `src/utils/brand.ts`, `src/utils/vector.ts`, `src/utils/deep-freeze.ts`
-- [ ] T3 — Implementiere Seed-Zufall und Hilfen in `src/utils/random.ts`
-- [ ] T4 — Implementiere Mathe-Helfer (`clamp`, `distance`, `angleBetween`, `lerp`) in `src/utils/math.ts`
-- [ ] T5 — Implementiere `pushCircleOutOfRects` und `isRectInView` in `src/utils/collision.ts`
-- [ ] T6 — Implementiere `formatClock`, `formatScore` in `src/utils/format.ts` und Farbhilfen in `src/utils/color.ts`
-- [ ] T7 — Implementiere `pickWeighted` in `src/utils/weighted-pick.ts`
-- [ ] T8 — Implementiere Joystick-Mathe in `src/utils/joystick-math.ts`
+- [x] T2 — Implementiere `Brand`, `Vector` und `deepFreeze` in `src/utils/brand.ts`, `src/utils/vector.ts`, `src/utils/deep-freeze.ts`
+- [x] T3 — Implementiere Seed-Zufall und Hilfen in `src/utils/random.ts`
+- [x] T4 — Implementiere Mathe-Helfer (`clamp`, `distance`, `angleBetween`, `lerp`) in `src/utils/math.ts`
+- [x] T5 — Implementiere `pushCircleOutOfRects` und `isRectInView` in `src/utils/collision.ts`
+- [x] T6 — Implementiere `formatClock`, `formatScore` in `src/utils/format.ts` und Farbhilfen in `src/utils/color.ts`
+- [x] T7 — Implementiere `pickWeighted` in `src/utils/weighted-pick.ts`
+- [x] T8 — Implementiere Joystick-Mathe in `src/utils/joystick-math.ts`
 
 ## Kataloge
 
