@@ -17,7 +17,12 @@ export default defineConfig({
       provider: playwright(),
     },
     coverage: {
-      exclude: ["**/*spec*{js,ts,jsx,tsx}", "src/main.ts", "src/constants.ts"],
+      exclude: [
+        "**/*spec*{js,ts,jsx,tsx}",
+        "src/main.ts",
+        "src/constants.ts",
+        "src/harness/**",
+      ],
       include: ["src/**/*.ts"],
       reporter: ["text", "json", "html"],
       thresholds: {
