@@ -23,10 +23,10 @@
 
 ## Spielstand
 
-- [ ] T16 — Implementiere Schema, Standardwerte und Validierung in `src/save/save-data.ts`
-- [ ] T17 — Implementiere `loadSaveData`/`storeSaveData` in `src/save/save-storage.ts`
-- [ ] T18 — Implementiere Fortschritt (`recordRunStart` …) in `src/save/progress.ts`
-- [ ] T19 — Implementiere `applyUnlocks` in `src/save/unlocks.ts` und `purchaseShopItem` in `src/save/shop.ts`
+- [x] T16 — Implementiere Schema, Standardwerte und Validierung in `src/save/save-data.ts`
+- [x] T17 — Implementiere `loadSaveData`/`storeSaveData` in `src/save/save-storage.ts`
+- [x] T18 — Implementiere Fortschritt (`recordRunStart` …) in `src/save/progress.ts`
+- [x] T19 — Implementiere `applyUnlocks` in `src/save/unlocks.ts` und `purchaseShopItem` in `src/save/shop.ts`
 
 ## Simulation
 
