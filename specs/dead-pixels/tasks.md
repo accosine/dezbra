@@ -53,7 +53,7 @@
 
 - [x] T38 — Implementiere Textstile, Button, Karte und Balken in `src/ui/`
 - [x] T39 — Implementiere Banner und Joystick in `src/ui/banner.ts`, `src/ui/joystick.ts`
-- [ ] T40 — Implementiere Pixel- und Dekor-Texturen in `src/render/pixel-texture.ts`, `src/render/decor-texture.ts`
+- [x] T40 — Implementiere Pixel- und Dekor-Texturen in `src/render/pixel-texture.ts`, `src/render/decor-texture.ts`
 - [ ] T41 — Implementiere Boden- und Gebäude-Renderer in `src/render/ground-renderer.ts`, `src/render/building-renderer.ts`
 - [ ] T42 — Implementiere die Weltansicht in `src/render/world-view.ts`
 - [ ] T43 — Implementiere Gegner-, Spieler- und Effekt-Renderer in `src/render/`
