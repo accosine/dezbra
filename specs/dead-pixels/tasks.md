@@ -42,8 +42,8 @@
 - [x] T29 — Implementiere Bossverhalten und Boss-Spawn in `src/sim/boss.ts`
 - [x] T30 — Implementiere Kills, Combo und Punkte in `src/sim/kills.ts`
 - [x] T31 — Implementiere Kugelbewegung, Treffer und Explosionen in `src/sim/bullets.ts` und `src/sim/combat.ts`
-- [ ] T32 — Implementiere XP-Kristalle und Level-Ups in `src/sim/experience.ts`
-- [ ] T33 — Implementiere Wellen und Truhen in `src/sim/waves.ts` und `src/sim/chests.ts`
+- [x] T32 — Implementiere XP-Kristalle und Level-Ups in `src/sim/experience.ts`
+- [x] T33 — Implementiere Wellen und Truhen in `src/sim/waves.ts` und `src/sim/chests.ts`
 - [ ] T34 — Implementiere Upgrade-Angebote in `src/sim/upgrade-offers.ts`
 - [ ] T35 — Implementiere `applyUpgrade` in `src/sim/apply-upgrade.ts`
 - [ ] T36 — Implementiere Beute-Angebote und `applyLoot` in `src/sim/loot.ts`
