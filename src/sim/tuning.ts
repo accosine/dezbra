@@ -164,7 +164,8 @@ export const PICKUP_TUNING = deepFreeze({
 
 /** Visual particles and floating texts. */
 export const PARTICLE_TUNING = deepFreeze({
-  bloodColors: ["#c0392b", "#922b21"],
+  bloodColor: "#c0392b",
+  bloodColorDark: "#922b21",
   bloodLifeMinimum: 16,
   bloodLifeRange: 16,
   bloodMaxLife: 32,

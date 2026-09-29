@@ -33,9 +33,9 @@
 - [x] T20 — Definiere Zustands- und Eventtypen in `src/sim/game-state.ts`, `src/sim/entities.ts`, `src/sim/step-result.ts`
 - [x] T21 — Implementiere `generateWorld` in `src/sim/world-generation.ts`
 - [x] T22 — Implementiere `createRun` in `src/sim/create-run.ts`
-- [ ] T23 — Implementiere Spielerbewegung und Timer in `src/sim/player.ts`
-- [ ] T24 — Implementiere Spielerschaden, Schild und Wiederbelebung in `src/sim/player-damage.ts`
-- [ ] T25 — Implementiere Partikel und schwebende Texte in `src/sim/particles.ts`
+- [x] T23 — Implementiere Spielerbewegung und Timer in `src/sim/player.ts`
+- [x] T24 — Implementiere Spielerschaden, Schild und Wiederbelebung in `src/sim/player-damage.ts`
+- [x] T25 — Implementiere Partikel und schwebende Texte in `src/sim/particles.ts`
 - [ ] T26 — Implementiere Waffenmuster in `src/sim/weapon-patterns.ts`
 - [ ] T27 — Implementiere Feuer-Timer in `src/sim/weapons.ts`
 - [ ] T28 — Implementiere Gegner-Spawn und -Bewegung in `src/sim/enemies.ts`
