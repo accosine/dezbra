@@ -47,7 +47,7 @@
 - [x] T34 — Implementiere Upgrade-Angebote in `src/sim/upgrade-offers.ts`
 - [x] T35 — Implementiere `applyUpgrade` in `src/sim/apply-upgrade.ts`
 - [x] T36 — Implementiere Beute-Angebote und `applyLoot` in `src/sim/loot.ts`
-- [ ] T37 — Verdrahte den Tick in `src/sim/step.ts` und Kamera/Zusammenfassung in `src/sim/camera.ts`, `src/sim/run-summary.ts`
+- [x] T37 — Verdrahte den Tick in `src/sim/step.ts` und Kamera/Zusammenfassung in `src/sim/camera.ts`, `src/sim/run-summary.ts`
 
 ## Rendering und UI
 
