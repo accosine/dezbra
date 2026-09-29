@@ -1,0 +1,41 @@
+import type { PixelSprite } from "../pixel-sprite";
+
+/** Shade X — schwarzer Umhang, cyanfarbene Augen. */
+export const GHOST_SPRITE: PixelSprite = {
+  palette: [
+    ["a", "#080818"],
+    ["b", "#181828"],
+    ["c", "#050512"],
+    ["d", "#141424"],
+    ["e", "#242434"],
+    ["f", "#00eeff"],
+    ["g", "#101020"],
+    ["h", "#202030"],
+    ["i", "#0a0a1a"],
+    ["j", "#060616"],
+    ["k", "#00ccee"],
+    ["l", "#00aacc"],
+    ["m", "#008899"],
+    ["n", "#040410"],
+    ["o", "#020208"],
+    ["p", "#020206"],
+  ],
+  rows: [
+    "..abbba...",
+    ".cdeeedc..",
+    ".aefgfea..",
+    "..deged...",
+    "..ghhhg...",
+    ".ideeedi..",
+    "jdekledj.k",
+    "jgddddgjlm",
+    "jgj..jgj..",
+    "jgj..jgj..",
+    ".jgg.ggj..",
+    ".njj.jjn..",
+    ".nn...nn..",
+    ".on...no..",
+    ".po...op..",
+    "..........",
+  ],
+};

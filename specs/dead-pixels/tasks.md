@@ -13,13 +13,13 @@
 
 ## Kataloge
 
-- [ ] T9 — Lege den Waffenkatalog in `src/data/weapons.ts` an
-- [ ] T10 — Lege Perks, Beute und Bosse in `src/data/perks.ts`, `src/data/loot.ts`, `src/data/bosses.ts` an
-- [ ] T11 — Lege Shop-Artikel in `src/data/shop-items.ts` an
-- [ ] T12 — Lege Charaktere in `src/data/characters.ts` an
-- [ ] T13 — Lege Karten und Paletten in `src/data/maps.ts` an
-- [ ] T14 — Kodiere Pixel-Art in `src/data/character-sprites.ts` und `src/data/zombie-sprites.ts`
-- [ ] T15 — Beschreibe Dekorationsformen in `src/data/decor-shapes.ts`
+- [x] T9 — Lege den Waffenkatalog in `src/data/weapons.ts` an
+- [x] T10 — Lege Perks, Beute und Bosse in `src/data/perks.ts`, `src/data/loot.ts`, `src/data/bosses.ts` an
+- [x] T11 — Lege Shop-Artikel in `src/data/shop-items.ts` an
+- [x] T12 — Lege Charaktere in `src/data/characters.ts` an
+- [x] T13 — Lege Karten und Paletten in `src/data/maps.ts` an
+- [x] T14 — Kodiere Pixel-Art in `src/data/character-sprites.ts` und `src/data/zombie-sprites.ts`
+- [x] T15 — Beschreibe Dekorationsformen in `src/data/decor-shapes.ts`
 
 ## Spielstand
 

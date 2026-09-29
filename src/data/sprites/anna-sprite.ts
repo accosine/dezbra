@@ -1,0 +1,43 @@
+import type { PixelSprite } from "../pixel-sprite";
+
+/** Anna Krieg — rotes Barett, dunkler Mantel. */
+export const ANNA_SPRITE: PixelSprite = {
+  palette: [
+    ["a", "#960000"],
+    ["b", "#b00000"],
+    ["c", "#720000"],
+    ["d", "#c80000"],
+    ["e", "#e8c89a"],
+    ["f", "#c8a070"],
+    ["g", "#1a1a1a"],
+    ["h", "#2c1e12"],
+    ["i", "#3c2e1e"],
+    ["j", "#1e100a"],
+    ["k", "#4c3c2a"],
+    ["l", "#cccccc"],
+    ["m", "#acacac"],
+    ["n", "#909090"],
+    ["o", "#140800"],
+    ["p", "#100600"],
+    ["q", "#0c0400"],
+    ["r", "#080200"],
+  ],
+  rows: [
+    "..abbba...",
+    ".cbdddbc..",
+    "..eeaee...",
+    "..efgfe...",
+    "..eeeee...",
+    ".hiiiiih..",
+    "jhkllkhj.m",
+    "jhhhhhhjmn",
+    "jjj..jjj..",
+    "jhj..jhj..",
+    ".jhh.hhj..",
+    ".ojj.jjo..",
+    ".po...op..",
+    ".qp...pq..",
+    ".rq...qr..",
+    "..........",
+  ],
+};
