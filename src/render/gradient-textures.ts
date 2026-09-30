@@ -27,6 +27,18 @@ export const OVERLAY_GRADIENTS: ReadonlyArray<VerticalGradient> = [
   },
 ];
 
+/** Dark fade behind the top HUD row. */
+export const HUD_SHADE: VerticalGradient = {
+  key: TEXTURE_KEYS.hudShade,
+  stops: [
+    { color: "rgba(0,0,0,0.85)", offset: 0 },
+    { color: "rgba(0,0,0,0)", offset: 1 },
+  ],
+};
+
+/** Height of the HUD shade in pixels. */
+export const HUD_SHADE_HEIGHT = 80;
+
 const ORIGIN = 0;
 
 /** Paints a vertical gradient into a canvas texture (no-op if it exists). */

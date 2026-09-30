@@ -5,6 +5,7 @@ import type { DecorType } from "../data/decor-shapes";
 export const TEXTURE_KEYS = {
   brute: "zombie-brute",
   glare: "overlay-glare",
+  hudShade: "hud-shade",
   mist: "overlay-mist",
   stain: "stain",
   vignette: "vignette",

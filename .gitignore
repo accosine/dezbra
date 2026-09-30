@@ -3,4 +3,6 @@ coverage
 dist
 test-results
 playwright-report
-.DS_Store__screenshots__
+.DS_Store
+__screenshots__
+.vitest-attachments

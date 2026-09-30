@@ -19,6 +19,7 @@ import {
   writeSelection,
 } from "./game-registry";
 import { createCard } from "../ui/card";
+import { describeUnlock } from "./unlock-banners";
 import { GAME_WIDTH } from "../constants";
 import type { SaveData } from "../save/save-data";
 import { SCENE_KEYS } from "./scene-keys";
@@ -36,18 +37,6 @@ const TONE_COLORS: Readonly<Record<StatTone, string>> = {
   bad: "#e74c3c",
   good: "#27ae60",
   neutral: "#666666",
-};
-const UNLOCK_COLORS: Readonly<Record<Unlock["kind"], string>> = {
-  character: SELECTED,
-  map: "#00d4ff",
-};
-const UNLOCK_SUFFIXES: Readonly<Record<Unlock["kind"], string>> = {
-  character: "FREIGESCHALTET!",
-  map: "FREI!",
-};
-const UNLOCK_ICONS: Readonly<Record<Unlock["kind"], string>> = {
-  character: "🔓",
-  map: "🗺️",
 };
 const BANNER_SPACING = 40;
 const HALF = 0.5;
@@ -77,14 +66,12 @@ export const announceUnlocks = (
   unlocks: ReadonlyArray<Unlock>,
 ): void => {
   for (const [index, unlock] of unlocks.entries()) {
-    showBanner(
-      scene,
-      `${UNLOCK_ICONS[unlock.kind]} ${unlock.name} ${UNLOCK_SUFFIXES[unlock.kind]}`,
-      {
-        color: UNLOCK_COLORS[unlock.kind],
-        offsetY: index * BANNER_SPACING,
-      },
-    );
+    const banner = describeUnlock(unlock);
+
+    showBanner(scene, banner.text, {
+      color: banner.color,
+      offsetY: index * BANNER_SPACING,
+    });
   }
 };
 

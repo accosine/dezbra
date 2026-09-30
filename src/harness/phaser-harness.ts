@@ -10,6 +10,7 @@ const FIRST_FRAME = 1;
 /** Boots a Phaser game with the given scenes and resolves once it is ready. */
 export const bootGame = async (
   scenes: ReadonlyArray<Phaser.Types.Scenes.SceneType>,
+  overrides: Phaser.Types.Core.GameConfig = {},
 ): Promise<Phaser.Game> => {
   const parent = document.createElement("div");
   parent.id = HARNESS_PARENT_ID;
@@ -23,6 +24,7 @@ export const bootGame = async (
     scene: [...scenes],
     type: Phaser.AUTO,
     width: GAME_WIDTH,
+    ...overrides,
   });
 
   await new Promise<void>((resolve): void => {

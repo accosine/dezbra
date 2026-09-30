@@ -40,7 +40,7 @@ describe("applyUpgrade weapons", (): void => {
   it("adds, levels and fuses weapons", (): void => {
     const withUzi = applyUpgrade(pendingState(), {
       ...CARD,
-      kind: "newWeapon",
+      kind: "extraWeapon",
       weaponId: "uzi",
     }).state;
     const leveled = applyUpgrade(withUzi, {
@@ -50,7 +50,7 @@ describe("applyUpgrade weapons", (): void => {
     }).state;
     const withShotgun = applyUpgrade(leveled, {
       ...CARD,
-      kind: "newWeapon",
+      kind: "extraWeapon",
       weaponId: "shotgun",
     }).state;
     const fused = applyUpgrade(withShotgun, {

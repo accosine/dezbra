@@ -127,7 +127,7 @@ const applyOffer = (state: GameState, offer: UpgradeOffer): StepResult => {
     return buildFusion(state, offer.weaponId);
   }
 
-  if (offer.kind === "newWeapon") {
+  if (offer.kind === "extraWeapon") {
     return withoutEvents(addWeapon(state, offer.weaponId));
   }
 

@@ -64,10 +64,10 @@
 - [x] T45 — Implementiere Szenen-Keys, Registry-Zugriff und `BootScene` in `src/scenes/`
 - [x] T46 — Implementiere `MenuScene` und `ShopScene`
 - [x] T47 — Implementiere `CharacterSelectScene` und `MapSelectScene`
-- [ ] T48 — Implementiere `PlayScene`
-- [ ] T49 — Implementiere `HudScene`
-- [ ] T50 — Implementiere `UpgradeScene` und `ChestScene`
-- [ ] T51 — Implementiere `GameOverScene`
+- [x] T48 — Implementiere `PlayScene`
+- [x] T49 — Implementiere `HudScene`
+- [x] T50 — Implementiere `UpgradeScene` und `ChestScene`
+- [x] T51 — Implementiere `GameOverScene`
 - [ ] T52 — Verdrahte `game-config.ts`, `main.ts`, `index.html`, `style.css` und entferne das Boilerplate
 
 ## Abschluss

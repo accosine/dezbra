@@ -6,7 +6,12 @@ import {
   SPRINTER_ZOMBIE_SPRITE,
 } from "../data/sprites/zombie-sprites";
 import { CHARACTER_IDS, type CharacterId } from "../data/characters";
-import { createGradientTexture, OVERLAY_GRADIENTS } from "./gradient-textures";
+import {
+  createGradientTexture,
+  HUD_SHADE,
+  HUD_SHADE_HEIGHT,
+  OVERLAY_GRADIENTS,
+} from "./gradient-textures";
 import {
   getCharacterTextureKey,
   getZombieTextureKey,
@@ -103,6 +108,19 @@ const createVignetteTexture = (scene: Phaser.Scene, size: Size): void => {
   }
 };
 
+const createScreenTextures = (scene: Phaser.Scene, viewSize: Size): void => {
+  createVignetteTexture(scene, viewSize);
+
+  for (const gradient of OVERLAY_GRADIENTS) {
+    createGradientTexture(scene, gradient, viewSize);
+  }
+
+  createGradientTexture(scene, HUD_SHADE, {
+    height: HUD_SHADE_HEIGHT,
+    width: viewSize.width,
+  });
+};
+
 /** Generates every texture of the game (characters, zombies, decorations, stains, vignette). */
 export const createGameTextures = (
   scene: Phaser.Scene,
@@ -122,9 +140,5 @@ export const createGameTextures = (
   createPixelTexture(scene, TEXTURE_KEYS.brute, BRUTE_ZOMBIE_SPRITE);
   createDecorTextures(scene);
   createStainTexture(scene);
-  createVignetteTexture(scene, viewSize);
-
-  for (const gradient of OVERLAY_GRADIENTS) {
-    createGradientTexture(scene, gradient, viewSize);
-  }
+  createScreenTextures(scene, viewSize);
 };

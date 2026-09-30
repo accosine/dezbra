@@ -105,7 +105,7 @@ describe("createUpgradeOffers weapons", (): void => {
       "weaponLevel:laser",
     );
     expect(offers).toContainEqual(
-      expect.objectContaining({ kind: "newWeapon", name: "GRANATE (NEU)" }),
+      expect.objectContaining({ kind: "extraWeapon", name: "GRANATE (NEU)" }),
     );
   });
 

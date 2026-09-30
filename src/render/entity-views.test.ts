@@ -11,7 +11,11 @@ import {
   drawGems,
   drawParticles,
 } from "./effects-renderer";
-import { pickBossHealthColor, pickEnemyHealthColor } from "./health-colors";
+import {
+  pickBossHealthColor,
+  pickEnemyHealthColor,
+  pickPlayerHealthColor,
+} from "./health-colors";
 import { samplePixel, useHarnessScene } from "../harness/phaser-harness";
 import { BossView } from "./boss-view";
 import { createGameTextures } from "./game-textures";
@@ -49,6 +53,11 @@ describe("health colors", (): void => {
         pickBossHealthColor(ratio),
       ),
     ).toEqual(["#27ae60", "#e67e22", "#e74c3c"]);
+    expect(
+      [RATIOS.high, RATIOS.middle, RATIOS.low].map((ratio) =>
+        pickPlayerHealthColor(ratio),
+      ),
+    ).toEqual(["#27ae60", "#e67e22", "#c0392b"]);
   });
 });
 

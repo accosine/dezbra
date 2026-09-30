@@ -24,7 +24,7 @@ export type UpgradeOffer = Readonly<{
 }> &
   (
     | Readonly<{ kind: "fusion"; weaponId: WeaponId }>
-    | Readonly<{ kind: "newWeapon"; weaponId: WeaponId }>
+    | Readonly<{ kind: "extraWeapon"; weaponId: WeaponId }>
     | Readonly<{ kind: "perk"; perkId: PerkId }>
     | Readonly<{ kind: "weaponLevel"; weaponId: WeaponId }>
   );
@@ -107,7 +107,7 @@ const listNewWeaponOffers = (state: GameState): ReadonlyArray<UpgradeOffer> =>
     .map((weapon) => ({
       description: weapon.description,
       icon: weapon.icon,
-      kind: "newWeapon",
+      kind: "extraWeapon",
       name: `${weapon.name} (NEU)`,
       rarity: "rare",
       weaponId: weapon.id,
