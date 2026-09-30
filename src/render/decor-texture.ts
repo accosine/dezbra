@@ -1,13 +1,12 @@
-import * as Phaser from "phaser";
+import type * as Phaser from "phaser";
 import { DECOR_SHAPES, type DecorType } from "../data/decor-shapes";
 import {
   type DecorDefinition,
   type DecorShape,
   VARIANT_COLOR,
 } from "../data/decor-shape";
-import { createEllipsePoints } from "./ellipse-points";
+import { drawShapes } from "./shape-drawing";
 import { getDecorTextureKey } from "./texture-keys";
-import { hexToNumber } from "../utils/color";
 import type { Rect } from "../utils/collision";
 import type { Vector } from "../utils/vector";
 
@@ -55,40 +54,13 @@ export const getDecorOrigin = (type: DecorType): Vector => {
   return { x: -bounds.x / bounds.width, y: -bounds.y / bounds.height };
 };
 
-const drawShape = (
-  graphics: Phaser.GameObjects.Graphics,
-  shape: DecorShape,
-  color: string,
-): void => {
-  graphics.fillStyle(hexToNumber(color), shape.alpha ?? OPAQUE);
-
-  if (shape.kind === "rect") {
-    graphics.fillRect(shape.x, shape.y, shape.width, shape.height);
-  } else if (shape.kind === "circle") {
-    graphics.fillCircle(shape.x, shape.y, shape.radius);
-  } else {
-    graphics.fillPoints(
-      createEllipsePoints(shape).map(
-        (point) => new Phaser.Math.Vector2(point.x, point.y),
-      ),
-      true,
-    );
-  }
-};
-
 /** Draws a decoration with its center at the graphics' origin. */
 export const drawDecor = (
   graphics: Phaser.GameObjects.Graphics,
   definition: DecorDefinition,
   variantColor: string,
 ): void => {
-  for (const shape of definition.shapes) {
-    drawShape(
-      graphics,
-      shape,
-      shape.color === VARIANT_COLOR ? variantColor : shape.color,
-    );
-  }
+  drawShapes(graphics, definition.shapes, { alpha: OPAQUE, variantColor });
 };
 
 /** Number of color variants a decoration has (at least one). */

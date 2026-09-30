@@ -4,6 +4,7 @@ export const DEPTHS = {
   bullets: 8,
   decorations: 3,
   enemies: 6,
+  enemyDetails: 6.5,
   floats: 11,
   ground: 0,
   overlay: 4,

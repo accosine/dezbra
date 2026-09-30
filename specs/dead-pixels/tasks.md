@@ -56,7 +56,7 @@
 - [x] T40 — Implementiere Pixel- und Dekor-Texturen in `src/render/pixel-texture.ts`, `src/render/decor-texture.ts`
 - [x] T41 — Implementiere Boden- und Gebäude-Renderer in `src/render/ground-renderer.ts`, `src/render/building-renderer.ts`
 - [x] T42 — Implementiere die Weltansicht in `src/render/world-view.ts`
-- [ ] T43 — Implementiere Gegner-, Spieler- und Effekt-Renderer in `src/render/`
+- [x] T43 — Implementiere Gegner-, Spieler- und Effekt-Renderer in `src/render/`
 - [ ] T44 — Implementiere den Minimap-Renderer in `src/render/minimap-renderer.ts`
 
 ## Szenen
