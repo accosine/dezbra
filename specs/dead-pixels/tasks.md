@@ -18,7 +18,7 @@
 - [x] T11 — Lege Shop-Artikel in `src/data/shop-items.ts` an
 - [x] T12 — Lege Charaktere in `src/data/characters.ts` an
 - [x] T13 — Lege Karten und Paletten in `src/data/maps.ts` an
-- [x] T14 — Kodiere Pixel-Art in `src/data/character-sprites.ts` und `src/data/zombie-sprites.ts`
+- [x] T14 — Kodiere Pixel-Art in `src/data/sprites/*`
 - [x] T15 — Beschreibe Dekorationsformen in `src/data/decor-shapes.ts`
 
 ## Spielstand
@@ -33,7 +33,7 @@
 - [x] T20 — Definiere Zustands- und Eventtypen in `src/sim/game-state.ts`, `src/sim/entities.ts`, `src/sim/step-result.ts`
 - [x] T21 — Implementiere `generateWorld` in `src/sim/world-generation.ts`
 - [x] T22 — Implementiere `createRun` in `src/sim/create-run.ts`
-- [x] T23 — Implementiere Spielerbewegung und Timer in `src/sim/player.ts`
+- [x] T23 — Implementiere Spielerbewegung und Timer in `src/sim/player-movement.ts` und `src/sim/player-timers.ts`
 - [x] T24 — Implementiere Spielerschaden, Schild und Wiederbelebung in `src/sim/player-damage.ts`
 - [x] T25 — Implementiere Partikel und schwebende Texte in `src/sim/particles.ts`
 - [x] T26 — Implementiere Waffenmuster in `src/sim/weapon-patterns.ts`
@@ -57,7 +57,7 @@
 - [x] T41 — Implementiere Boden- und Gebäude-Renderer in `src/render/ground-renderer.ts`, `src/render/building-renderer.ts`
 - [x] T42 — Implementiere die Weltansicht in `src/render/world-view.ts`
 - [x] T43 — Implementiere Gegner-, Spieler- und Effekt-Renderer in `src/render/`
-- [x] T44 — Implementiere den Minimap-Renderer in `src/render/minimap-renderer.ts`
+- [x] T44 — Implementiere den Minimap-Renderer in `src/render/minimap-view.ts`
 
 ## Szenen
 
@@ -68,10 +68,10 @@
 - [x] T49 — Implementiere `HudScene`
 - [x] T50 — Implementiere `UpgradeScene` und `ChestScene`
 - [x] T51 — Implementiere `GameOverScene`
-- [ ] T52 — Verdrahte `game-config.ts`, `main.ts`, `index.html`, `style.css` und entferne das Boilerplate
+- [x] T52 — Verdrahte `game-config.ts`, `main.ts`, `index.html`, `style.css` und entferne das Boilerplate
 
 ## Abschluss
 
-- [ ] T53 — Ergänze E2E-Smoke-Test in `e2e/`
-- [ ] T54 — Aktualisiere `README.md` und `package.json`
-- [ ] T55 — Führe die Review-Phase durch (Verification-Abschnitt in `spec.md`, Design-Drift)
+- [x] T53 — Ergänze E2E-Smoke-Test in `e2e/`
+- [x] T54 — Aktualisiere `README.md` und `package.json`
+- [x] T55 — Führe die Review-Phase durch (Verification-Abschnitt in `spec.md`, Design-Drift)

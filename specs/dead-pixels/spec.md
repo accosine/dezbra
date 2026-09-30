@@ -87,3 +87,21 @@ Spielerisch soll sich der Port wie die Vorlage anfühlen (gleiche Inhalte, gleic
   existieren).
 - Resize/Orientierungswechsel → `FIT` skaliert, Layout bleibt stabil.
 - Tab im Hintergrund (großes `delta`) → Anzahl nachzuholender Ticks wird begrenzt.
+
+## Verification
+
+| Anforderung                                   | Nachweis                                                                          |
+| --------------------------------------------- | --------------------------------------------------------------------------------- |
+| Weltgenerierung identisch zur Vorlage         | `src/sim/world-generation.test.ts` (Referenzwerte des Original-LCG)               |
+| Spielstand robust bei defektem `localStorage` | `src/save/save-storage.test.ts`, `src/save/save-data.test.ts`                     |
+| Waffen, Fusionen, Perks, Beute                | `src/sim/weapon-*.test.ts`, `apply-upgrade.test.ts`, `loot.test.ts`               |
+| Wellen, Bosse, Truhen, Level-ups              | `src/sim/waves.test.ts`, `boss*.test.ts`, `chests.test.ts`, `experience.test.ts`  |
+| Truhe vor Level-up, mehrere ausstehend        | `src/sim/phase.test.ts`, `src/scenes/play-flow.test.ts`, `play-edges.test.ts`     |
+| Wiederbelebung einmalig                       | `src/sim/player-damage.test.ts`                                                   |
+| Große `delta`-Werte begrenzt                  | `src/scenes/play-edges.test.ts`                                                   |
+| Menüfluss, Auswahl, Shop, Freischaltungen     | `src/scenes/menu-shop.test.ts`, `selection-scenes.test.ts`, `play-events.test.ts` |
+| HUD, Overlays, Game Over                      | `src/scenes/play-*.test.ts`, `overlays-alone.test.ts`                             |
+| Ohne Tastatur spielbar (Touch)                | `src/scenes/play-edges.test.ts`, `src/ui/ui-feedback.test.ts`                     |
+| Seite startet fehlerfrei, Canvas sichtbar     | `e2e/game-canvas.spec.ts` (Desktop- und Mobil-Viewports)                          |
+
+Alle Unit-Tests laufen mit 100 % Coverage (Zeilen, Branches, Funktionen, Statements).

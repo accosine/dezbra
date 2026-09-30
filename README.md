@@ -1,135 +1,84 @@
-# Phaser 4 + Vite + TypeScript Boilerplate
+# DEAD PIXELS
 
-Ein schlankes Starter-Projekt für Browser-Games mit **Phaser 4**, **TypeScript** und **Vite**.
-Die Vorlage ist sowohl für den schnellen Einstieg in ein neues Spiel als auch für saubere Team-Entwicklung mit Tests, Linting und CI gedacht.
+Ein Pixel-Art-Survival-Shooter im Stil von _Vampire Survivors_, gebaut mit **Phaser 4**, **TypeScript** und **Vite**.
+Du kämpfst dich durch endlose Zombie-Wellen, sammelst Erfahrung, verbesserst und fusionierst Waffen und besiegst Bosse – im Hochformat, per Tastatur oder Touch-Joystick.
 
-## Für wen ist dieses Projekt?
+## Spielen
 
-- **Spieler:innen / Nutzer:innen**
-  - Starten das Spiel lokal im Browser.
-  - Testen einfache Interaktionen (z. B. Klick/Tap-Effekte).
-- **Entwickler:innen**
-  - Erhalten ein vorkonfiguriertes Setup mit TypeScript, Vitest, Playwright, ESLint, Prettier und CI-Workflows.
+1. `pnpm install`
+2. `pnpm dev`
+3. Die angezeigte URL (typisch `http://localhost:5173`) im Browser öffnen.
 
-## Features
+### Steuerung
 
-- Phaser-4-Spielgrundgerüst mit einer `MainScene`
-- Vite als schneller Dev-Server und Build-Tool
-- TypeScript-Setup inkl. Typecheck
-- Unit-Tests (Vitest im Browser)
-- E2E-Tests (Playwright, inkl. Desktop + Mobile Viewports)
-- ESLint + Prettier
-- GitHub-Actions-Workflows für Validierung und Build
+- **Desktop:** Pfeiltasten oder WASD
+- **Mobil:** virtueller Joystick unten links
+- Waffen feuern automatisch auf den nächsten Gegner.
+
+### Spielinhalte
+
+- **6 Charaktere** mit eigenen Werten und Startwaffen – weitere werden durch Erfolge freigeschaltet
+- **4 Karten** (Verlassene Stadt, Industriegebiet, Vergessener Friedhof, Ödland) mit eigener Palette und Dekoration
+- **Waffen, Level-ups und Fusionen:** Bei jedem Level-up wählst du aus drei Angeboten; bestimmte Waffenpaare lassen sich zu mächtigen Fusionswaffen kombinieren
+- **Wellen, Truhen und Bosse:** Nach jeder Welle wartet Beute, regelmäßig erscheinen Bosse mit eigenen Angriffsmustern
+- **Combo-System**, Minimap und Highscore
+- **Shop:** Mit gesammelten Münzen dauerhafte Verbesserungen kaufen
+- Fortschritt wird im `localStorage` gespeichert
 
 ## Voraussetzungen
 
 - **Node.js 24 oder neuer**
-- **pnpm 11**
-
-> Empfohlen: Verwende exakt die im Projekt hinterlegte pnpm-Version aus `packageManager`.
-
-## Installation
-
-```bash
-pnpm install
-```
-
-## Lokale Entwicklung
-
-Dev-Server starten:
-
-```bash
-pnpm dev
-```
-
-Danach die angezeigte lokale URL im Browser öffnen (typisch: `http://localhost:5173`).
-
-## Nutzung als Spieler:in
-
-Nach dem Start siehst du eine einfache Demo-Szene:
-
-- Titeltext in der Szene
-- Ein animiertes Controller-Emoji
-- Bei Klick/Tap wird an der Pointer-Position ein Kreis gezeichnet
-
-Damit kannst du schnell prüfen, ob Rendering, Input und Animation korrekt funktionieren.
+- **pnpm 11** (Version aus `packageManager`)
 
 ## Wichtige pnpm-Befehle
 
-### Entwicklung & Build
+| Befehl                    | Zweck                                       |
+| ------------------------- | ------------------------------------------- |
+| `pnpm dev`                | Entwicklungsserver mit HMR                  |
+| `pnpm build`              | Typprüfung + Produktionsbuild               |
+| `pnpm preview`            | Vorschau des Produktionsbuilds              |
+| `pnpm format`             | Prettier                                    |
+| `pnpm lint`               | ESLint                                      |
+| `pnpm typecheck`          | TypeScript-Typprüfung                       |
+| `pnpm test`               | Unit- und E2E-Tests                         |
+| `pnpm test:unit:chromium` | Unit-Tests in Chromium inkl. 100 %-Coverage |
+| `pnpm test:unit:firefox`  | Unit-Tests in Firefox                       |
+| `pnpm test:unit:webkit`   | Unit-Tests in WebKit                        |
+| `pnpm test:e2e`           | Playwright (Desktop- und Mobil-Viewports)   |
+| `pnpm ok`                 | format, lint, test, typecheck und build     |
 
-- `pnpm dev` – lokaler Entwicklungsserver mit HMR
-- `pnpm build` – TypeScript-Kompilierung + Produktionsbuild via Vite
-- `pnpm preview` – lokale Vorschau des Production-Builds
+## Architektur
 
-### Qualitätssicherung
+Die Spiellogik ist strikt von Phaser getrennt. Die Simulation ist eine reine Funktion
+`stepGame(state, input, random) → { state, events }` über einem unveränderlichen `GameState`
+und läuft in festen 1/60-s-Ticks. Phaser-Szenen rendern nur den Zustand und reichen Eingaben weiter.
 
-- `pnpm format` – formatiert Code mit Prettier
-- `pnpm lint` – statische Analyse mit ESLint
-- `pnpm typecheck` – TypeScript-Typprüfung
+```text
+src/
+├─ utils/    domänenunabhängige Helfer (Zufall, Mathe, Kollision, Farben …)
+├─ data/     Kataloge: Waffen, Perks, Beute, Bosse, Charaktere, Karten, Pixel-Sprites
+├─ save/     Spielstand, Fortschritt, Freischaltungen, Shop
+├─ sim/      reine Simulation (Weltgenerierung, Gegner, Waffen, Wellen, Upgrades …)
+├─ render/   prozedurale Texturen und Ansichten für Welt, Gegner, Spieler, Effekte
+├─ ui/       wiederverwendbare Phaser-Bausteine (Buttons, Karten, Banner, Joystick)
+├─ scenes/   Boot, Menü, Auswahl, Shop, Spiel, HUD, Overlays, Game Over
+├─ harness/  Testhilfen, die echte Phaser-Instanzen im Browser starten
+├─ game-config.ts
+└─ main.ts
+e2e/         Playwright-Smoke-Tests
+specs/       Spezifikation, Design und Aufgabenliste (inkl. Original-Vorlage)
+```
 
-### Tests
-
-- `pnpm test` – komplette Test-Suite (Unit + E2E)
-- `pnpm test:unit:chromium` – Unit-Tests in Chromium (inkl. Coverage)
-- `pnpm test:unit:firefox` – Unit-Tests in Firefox
-- `pnpm test:unit:webkit` – Unit-Tests in WebKit
-- `pnpm test:e2e` – E2E-Tests mit Playwright
-
-### All-in-One Check
-
-- `pnpm ok` – führt nacheinander aus:
-  - `format`
-  - `lint`
-  - `test`
-  - `typecheck`
-  - `build`
-
-Dieser Befehl eignet sich ideal vor Commits oder Pull Requests.
+Details stehen in [`specs/dead-pixels/design.md`](specs/dead-pixels/design.md).
 
 ## CI (GitHub Actions)
 
-Das Repository enthält mehrere Workflows unter `.github/workflows`, u. a. für:
+Die Workflows unter `.github/workflows` prüfen Format, Linting, Typen, Build,
+Unit-Tests (Chromium, Firefox, WebKit) und E2E-Tests (Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari).
 
-- **Format-Check**
-- **Linting**
-- **Typecheck**
-- **Build**
-- **Unit-Tests** (Chromium, Firefox, WebKit)
-- **E2E-Tests** (Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari)
-
-So wird sichergestellt, dass Änderungen auf mehreren Browsern und Viewports verlässlich geprüft werden.
-
-## Projektstruktur (Kurzüberblick)
-
-```text
-.
-├─ src/
-│  ├─ main.ts
-│  ├─ main-scene.ts
-│  ├─ constants.ts
-│  └─ *.test.ts
-├─ e2e/
-│  └─ *.spec.ts
-├─ .github/workflows/
-├─ vite.config.ts
-├─ vitest.config.ts
-├─ playwright.config.ts
-└─ package.json
-```
-
-## Häufiger Workflow für Beiträge
+## Beiträge
 
 1. Feature-Branch erstellen
-2. Änderungen implementieren
-3. Lokal prüfen:
-   ```bash
-   pnpm ok
-   ```
-4. Commit & Pull Request erstellen
-5. CI-Ergebnisse prüfen
-
-## Lizenz
-
-Aktuell ist in diesem Repository keine explizite Lizenzdatei hinterlegt.
-Wenn du das Projekt veröffentlichen oder extern nutzen möchtest, ergänze eine passende `LICENSE`.
+2. Änderungen testgetrieben umsetzen (siehe `AGENTS.md`)
+3. `pnpm ok` ausführen
+4. Commit (Conventional Commits) und Pull Request erstellen
