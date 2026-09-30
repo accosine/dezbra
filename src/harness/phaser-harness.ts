@@ -140,3 +140,86 @@ export const useHarnessScene = (): (() => HarnessScene) => {
     return requireScene(game, HARNESS_SCENE_KEY, HarnessScene);
   };
 };
+
+const POLL_MILLISECONDS = 10;
+const DEFAULT_TIMEOUT = 4000;
+
+/** Resolves once the predicate holds; rejects after the timeout. */
+export const waitUntil = async (
+  predicate: () => boolean,
+  timeout = DEFAULT_TIMEOUT,
+): Promise<void> => {
+  const deadline = Date.now() + timeout;
+
+  while (!predicate()) {
+    if (Date.now() > deadline) {
+      throw new Error("Condition not met in time.");
+    }
+
+    // eslint-disable-next-line no-await-in-loop -- polling needs sequential waits
+    await new Promise<void>((resolve): void => {
+      setTimeout(resolve, POLL_MILLISECONDS);
+    });
+  }
+};
+
+/** Starts a scene and waits until it is running. */
+export const startScene = async (
+  game: Phaser.Game,
+  key: string,
+): Promise<void> => {
+  game.scene.start(key);
+  await waitUntil(() => game.scene.isActive(key));
+};
+
+/** Finds the interactive container (button or card) that contains the given text. */
+export const findPressable = (
+  scene: Phaser.Scene,
+  label: string,
+): Phaser.GameObjects.Container => {
+  const pressable = scene.children.list.find(
+    (child): child is Phaser.GameObjects.Container =>
+      child instanceof Phaser.GameObjects.Container &&
+      child.input !== null &&
+      child.list.some(
+        (nested) =>
+          nested instanceof Phaser.GameObjects.Text && nested.text === label,
+      ),
+  );
+
+  if (pressable === undefined) {
+    throw new Error(`Nothing pressable labeled ${label}.`);
+  }
+
+  return pressable;
+};
+
+/** Presses (releases the pointer on) the button or card with the given text. */
+export const press = (scene: Phaser.Scene, label: string): void => {
+  findPressable(scene, label).emit(Phaser.Input.Events.GAMEOBJECT_POINTER_UP);
+};
+
+/** Boots one game with the given scenes per test file and returns an accessor. */
+export const useGame = (
+  scenes: ReadonlyArray<Phaser.Types.Scenes.SceneType>,
+): (() => Phaser.Game) => {
+  let game: Phaser.Game | null = null;
+
+  beforeAll(async (): Promise<void> => {
+    game = await bootGame(scenes);
+  });
+
+  afterAll((): void => {
+    if (game !== null) {
+      destroyGame(game);
+    }
+  });
+
+  return (): Phaser.Game => {
+    if (game === null) {
+      throw new Error("The game has not booted yet.");
+    }
+
+    return game;
+  };
+};

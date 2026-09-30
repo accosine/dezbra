@@ -61,8 +61,8 @@
 
 ## Szenen
 
-- [ ] T45 — Implementiere Szenen-Keys, Registry-Zugriff und `BootScene` in `src/scenes/`
-- [ ] T46 — Implementiere `MenuScene` und `ShopScene`
+- [x] T45 — Implementiere Szenen-Keys, Registry-Zugriff und `BootScene` in `src/scenes/`
+- [x] T46 — Implementiere `MenuScene` und `ShopScene`
 - [ ] T47 — Implementiere `CharacterSelectScene` und `MapSelectScene`
 - [ ] T48 — Implementiere `PlayScene`
 - [ ] T49 — Implementiere `HudScene`
