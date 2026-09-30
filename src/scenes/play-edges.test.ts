@@ -40,6 +40,8 @@ const WAVE_END = 1700;
 const BEST = 9000;
 const FIRST_LEVEL = 1;
 const FRAME_MS = 17;
+const BACKGROUND_TAB_MS = 10_000;
+const MAX_CATCH_UP_TICKS = 5;
 const BIG_COMBO = 12;
 const COMBO_TICKS = 100;
 const EVERYTHING: SaveData = {
@@ -94,9 +96,11 @@ describe("PlayScene before a run", (): void => {
 
     play.update(NONE, FRAME_MS);
     play.restoreState(state);
-    play.update(NONE, FRAME_MS);
+    play.update(NONE, BACKGROUND_TAB_MS);
 
-    expect(play.snapshot?.progress.frame).toBeGreaterThan(state.progress.frame);
+    expect(play.snapshot?.progress.frame).toBe(
+      state.progress.frame + MAX_CATCH_UP_TICKS,
+    );
     destroyGame(game);
   });
 
