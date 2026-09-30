@@ -6,6 +6,7 @@ import {
   SPRINTER_ZOMBIE_SPRITE,
 } from "../data/sprites/zombie-sprites";
 import { CHARACTER_IDS, type CharacterId } from "../data/characters";
+import { createGradientTexture, OVERLAY_GRADIENTS } from "./gradient-textures";
 import {
   getCharacterTextureKey,
   getZombieTextureKey,
@@ -122,4 +123,8 @@ export const createGameTextures = (
   createDecorTextures(scene);
   createStainTexture(scene);
   createVignetteTexture(scene, viewSize);
+
+  for (const gradient of OVERLAY_GRADIENTS) {
+    createGradientTexture(scene, gradient, viewSize);
+  }
 };

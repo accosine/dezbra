@@ -4,6 +4,8 @@ import type { DecorType } from "../data/decor-shapes";
 /** Texture keys of everything generated at boot. */
 export const TEXTURE_KEYS = {
   brute: "zombie-brute",
+  glare: "overlay-glare",
+  mist: "overlay-mist",
   stain: "stain",
   vignette: "vignette",
 };
