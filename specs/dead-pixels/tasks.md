@@ -57,7 +57,7 @@
 - [x] T41 — Implementiere Boden- und Gebäude-Renderer in `src/render/ground-renderer.ts`, `src/render/building-renderer.ts`
 - [x] T42 — Implementiere die Weltansicht in `src/render/world-view.ts`
 - [x] T43 — Implementiere Gegner-, Spieler- und Effekt-Renderer in `src/render/`
-- [ ] T44 — Implementiere den Minimap-Renderer in `src/render/minimap-renderer.ts`
+- [x] T44 — Implementiere den Minimap-Renderer in `src/render/minimap-renderer.ts`
 
 ## Szenen
 
