@@ -117,9 +117,14 @@ describe("PlayScene overlays", (): void => {
       progress: { ...state.progress, pendingChests: SINGLE },
     });
     await waitUntil(() => getGame().scene.isActive(SCENE_KEYS.chest));
+
+    const lootWithoutLevelUp = play.pendingLoot.find(
+      (loot) => loot.id !== "knowledgeShard",
+    );
+
     press(
       requireScene(getGame(), SCENE_KEYS.chest, ChestScene),
-      play.pendingLoot.at(NONE)?.name ?? "",
+      lootWithoutLevelUp?.name ?? "",
     );
     expect(requireSnapshot(play).phase).toBe("playing");
     await waitUntil(() => !getGame().scene.isActive(SCENE_KEYS.chest));
