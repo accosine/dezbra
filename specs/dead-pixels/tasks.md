@@ -1,0 +1,77 @@
+# DEAD PIXELS — Tasks
+
+## Fundament
+
+- [x] T1 — Füge die `id-length`-Ausnahme für `x`/`y` in `eslint-config/rules.js` hinzu
+- [x] T2 — Implementiere `Brand`, `Vector` und `deepFreeze` in `src/utils/brand.ts`, `src/utils/vector.ts`, `src/utils/deep-freeze.ts`
+- [x] T3 — Implementiere Seed-Zufall und Hilfen in `src/utils/random.ts`
+- [x] T4 — Implementiere Mathe-Helfer (`clamp`, `distance`, `angleBetween`, `lerp`) in `src/utils/math.ts`
+- [x] T5 — Implementiere `pushCircleOutOfRects` und `isRectInView` in `src/utils/collision.ts`
+- [x] T6 — Implementiere `formatClock`, `formatScore` in `src/utils/format.ts` und Farbhilfen in `src/utils/color.ts`
+- [x] T7 — Implementiere `pickWeighted` in `src/utils/weighted-pick.ts`
+- [x] T8 — Implementiere Joystick-Mathe in `src/utils/joystick-math.ts`
+
+## Kataloge
+
+- [x] T9 — Lege den Waffenkatalog in `src/data/weapons.ts` an
+- [x] T10 — Lege Perks, Beute und Bosse in `src/data/perks.ts`, `src/data/loot.ts`, `src/data/bosses.ts` an
+- [x] T11 — Lege Shop-Artikel in `src/data/shop-items.ts` an
+- [x] T12 — Lege Charaktere in `src/data/characters.ts` an
+- [x] T13 — Lege Karten und Paletten in `src/data/maps.ts` an
+- [x] T14 — Kodiere Pixel-Art in `src/data/sprites/*`
+- [x] T15 — Beschreibe Dekorationsformen in `src/data/decor-shapes.ts`
+
+## Spielstand
+
+- [x] T16 — Implementiere Schema, Standardwerte und Validierung in `src/save/save-data.ts`
+- [x] T17 — Implementiere `loadSaveData`/`storeSaveData` in `src/save/save-storage.ts`
+- [x] T18 — Implementiere Fortschritt (`recordRunStart` …) in `src/save/progress.ts`
+- [x] T19 — Implementiere `applyUnlocks` in `src/save/unlocks.ts` und `purchaseShopItem` in `src/save/shop.ts`
+
+## Simulation
+
+- [x] T20 — Definiere Zustands- und Eventtypen in `src/sim/game-state.ts`, `src/sim/entities.ts`, `src/sim/step-result.ts`
+- [x] T21 — Implementiere `generateWorld` in `src/sim/world-generation.ts`
+- [x] T22 — Implementiere `createRun` in `src/sim/create-run.ts`
+- [x] T23 — Implementiere Spielerbewegung und Timer in `src/sim/player-movement.ts` und `src/sim/player-timers.ts`
+- [x] T24 — Implementiere Spielerschaden, Schild und Wiederbelebung in `src/sim/player-damage.ts`
+- [x] T25 — Implementiere Partikel und schwebende Texte in `src/sim/particles.ts`
+- [x] T26 — Implementiere Waffenmuster in `src/sim/weapon-patterns.ts`
+- [x] T27 — Implementiere Feuer-Timer in `src/sim/weapons.ts`
+- [x] T28 — Implementiere Gegner-Spawn und -Bewegung in `src/sim/enemies.ts`
+- [x] T29 — Implementiere Bossverhalten und Boss-Spawn in `src/sim/boss.ts`
+- [x] T30 — Implementiere Kills, Combo und Punkte in `src/sim/kills.ts`
+- [x] T31 — Implementiere Kugelbewegung, Treffer und Explosionen in `src/sim/bullets.ts` und `src/sim/combat.ts`
+- [x] T32 — Implementiere XP-Kristalle und Level-Ups in `src/sim/experience.ts`
+- [x] T33 — Implementiere Wellen und Truhen in `src/sim/waves.ts` und `src/sim/chests.ts`
+- [x] T34 — Implementiere Upgrade-Angebote in `src/sim/upgrade-offers.ts`
+- [x] T35 — Implementiere `applyUpgrade` in `src/sim/apply-upgrade.ts`
+- [x] T36 — Implementiere Beute-Angebote und `applyLoot` in `src/sim/loot.ts`
+- [x] T37 — Verdrahte den Tick in `src/sim/step.ts` und Kamera/Zusammenfassung in `src/sim/camera.ts`, `src/sim/run-summary.ts`
+
+## Rendering und UI
+
+- [x] T38 — Implementiere Textstile, Button, Karte und Balken in `src/ui/`
+- [x] T39 — Implementiere Banner und Joystick in `src/ui/banner.ts`, `src/ui/joystick.ts`
+- [x] T40 — Implementiere Pixel- und Dekor-Texturen in `src/render/pixel-texture.ts`, `src/render/decor-texture.ts`
+- [x] T41 — Implementiere Boden- und Gebäude-Renderer in `src/render/ground-renderer.ts`, `src/render/building-renderer.ts`
+- [x] T42 — Implementiere die Weltansicht in `src/render/world-view.ts`
+- [x] T43 — Implementiere Gegner-, Spieler- und Effekt-Renderer in `src/render/`
+- [x] T44 — Implementiere den Minimap-Renderer in `src/render/minimap-view.ts`
+
+## Szenen
+
+- [x] T45 — Implementiere Szenen-Keys, Registry-Zugriff und `BootScene` in `src/scenes/`
+- [x] T46 — Implementiere `MenuScene` und `ShopScene`
+- [x] T47 — Implementiere `CharacterSelectScene` und `MapSelectScene`
+- [x] T48 — Implementiere `PlayScene`
+- [x] T49 — Implementiere `HudScene`
+- [x] T50 — Implementiere `UpgradeScene` und `ChestScene`
+- [x] T51 — Implementiere `GameOverScene`
+- [x] T52 — Verdrahte `game-config.ts`, `main.ts`, `index.html`, `style.css` und entferne das Boilerplate
+
+## Abschluss
+
+- [x] T53 — Ergänze E2E-Smoke-Test in `e2e/`
+- [x] T54 — Aktualisiere `README.md` und `package.json`
+- [x] T55 — Führe die Review-Phase durch (Verification-Abschnitt in `spec.md`, Design-Drift)

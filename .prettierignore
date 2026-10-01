@@ -3,3 +3,4 @@ playwright-report
 dist
 test-results
 pnpm-lock.yaml
+specs/dead-pixels/reference

@@ -1,0 +1,42 @@
+import type { PixelSprite } from "../pixel-sprite";
+
+/** Max Blitz — Stachelhaare, gelbe Jacke, Tech-Brille. */
+export const BLITZ_SPRITE: PixelSprite = {
+  palette: [
+    ["a", "#2a2a2a"],
+    ["b", "#181818"],
+    ["c", "#1a1a1a"],
+    ["d", "#383838"],
+    ["e", "#e8c89a"],
+    ["f", "#00ccff"],
+    ["g", "#0a0a0a"],
+    ["h", "#c8a070"],
+    ["i", "#d4a010"],
+    ["j", "#c49000"],
+    ["k", "#e8bc1c"],
+    ["l", "#ffd700"],
+    ["m", "#b48000"],
+    ["n", "#1a1a28"],
+    ["o", "#28283a"],
+    ["p", "#101018"],
+    ["q", "#0c0c10"],
+  ],
+  rows: [
+    "...abbaa..",
+    ".cadaadc..",
+    "..efgfe...",
+    "..ehche...",
+    "..eeeee...",
+    ".iiiiiii..",
+    "jkkllkkj.i",
+    "jiiiiiijjm",
+    "jij..jij..",
+    "mjm..mjm..",
+    ".mjj.jjm..",
+    ".noo.oon..",
+    ".nn...nn..",
+    ".pn...np..",
+    ".qp...pq..",
+    "..........",
+  ],
+};
